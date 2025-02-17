@@ -1,0 +1,459 @@
+.section1 {
+    background-image: url('../images/sun-setting-silhouette-electricity-pylons.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/* section2 */
+.section2 {
+    font-family: var(--family);
+    font-size: 20px;
+}
+
+.about-us {
+    font-family: var(--family);
+    font-size: 24px;
+    font-weight: 700;
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+.about-para {
+    font-family: var(--family);
+    font-size: 16px;
+    font-weight: 400;
+    color: #131513;
+    text-align: center;
+}
+
+.icons-aling {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.heading-align {
+    text-align: center;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 20px 0 10px;
+}
+
+.lightning {
+    color: #f4a500;
+}
+
+/* Description */
+.products-section {
+    text-align: center;
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* Products Container */
+.products-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Product Cards */
+.product-card {
+    background: #22c122;
+    border-radius: 15px;
+    padding: 0px;
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+    margin: 1%;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-image-container {
+    background: white;
+    border-top-right-radius: 30%;
+    border-bottom-left-radius: 30%;
+    padding: 30px;
+    margin-top: 8%;
+}
+
+.product-image-container img {
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+}
+
+.product-para-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.product-para-arrow .product-name {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.product-para-arrow .product-para {
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Product Link Icon */
+.product-link {
+    bottom: 15px;
+    right: 15px;
+    background: white;
+    color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.product-link i {
+    font-size: 20px;
+}
+
+.product-link:hover {
+    background: #f4a500;
+    color: white;
+}
+
+.view-btn {
+    background-color: #131513;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    border: none;
+    width: 120px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .products-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* parteners */
+/* section6 */
+.logo-card {
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    margin: 20px;
+    background-color: white;
+}
+
+.logo-card .logo {
+    width: 250px;
+    height: 150px;
+}
+
+@media screen and (min-width:1650px) {
+    .cfo-para2 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        font-size: 14px;
+    }
+
+    .logo-card {
+        height: 50px;
+        border-radius: 5px;
+    }
+}
+
+/* Partner Section */
+.our-partners {
+    text-align: center;
+    font-size: 40px;
+    font-family: var(--font-family);
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+@media screen and (min-width:760px) and (max-width:1020px) {
+    .our-partners {
+        font-size: 25px;
+    }
+}
+
+.bg-scroll {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+.frame {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    width: calc(150px * 20 + 30px * 19);
+    /* Width adjusted to fit all logos */
+    animation: scroll 26s linear infinite;
+    gap: 30px;
+    /* Adjusted for better spacing */
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+
+.frame .logo {
+    width: 50%;
+    height: 100px;
+    /* Adjusted size to fit five logos in view */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.bg-scroll:hover .frame {
+    animation-play-state: paused;
+}
+
+
+
+/* smaller laptops for partners section */
+@media screen and (min-width: 1120px) and (max-width: 1280px) {
+    .our-partners {
+        font-size: 36px;
+        /* Adjust font size for medium screens */
+        margin-bottom: 15px;
+        /* Adjust bottom margin for better spacing */
+    }
+
+    .bg-scroll {
+        padding-top: 2.5%;
+        padding-bottom: 2.5%;
+    }
+
+    .frame {
+        width: calc(150px * 15 + 30px * 14);
+        /* Adjust width to fit fewer logos */
+        gap: 20px;
+        /* Reduce gap for medium screens */
+    }
+
+    .frame .logo {
+        height: 80px;
+        /* Adjust logo size for medium screens */
+    }
+}
+
+/* mobile view */
+
+@media screen and (max-width: 767px) {
+    .our-partners {
+        font-size: 19px;
+        /* Reduce font size for mobile screens */
+        margin-bottom: 10px;
+        margin-top: 5px;
+        /* Adjust bottom margin for better spacing */
+    }
+
+    .bg-scroll {
+        padding-top: 3%;
+        padding-bottom: 3%;
+        margin-top: 4%;
+    }
+
+    .frame {
+        width: auto;
+        /* Allow the frame to be flexible in width */
+        gap: 10px;
+        /* Reduce gap for mobile screens */
+        width: calc(150px * 20 + 30px * 19);
+        animation: scroll 23s linear infinite;
+        /* Speed up animation for mobile */
+    }
+
+    .frame .logo {
+        height: 80px;
+        /* Reduce logo size for mobile screens */
+    }
+}
+
+/* certification section */
+.certification-bg {
+    background-color: #f4a500;
+    height: 40vh;
+}
+
+/* Contact Section */
+.contact-bg {
+    background-color: #CAE8C2B2;
+    padding: 60px 20px;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+
+/* Subtitle */
+.about-para {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1%;
+}
+
+/* Form Styling */
+.contact-form {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form Fields Alignment */
+.fields-align {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Label */
+.form-group {
+    flex: 1;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+/* Input & Textarea */
+input {
+    width: 98%;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+    /* font-size: 1rem; */
+    background: white;
+    outline: none;
+}
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid black;
+    background: white;
+    outline: none;
+
+}
+
+/* Textarea */
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Full-width message box */
+.full-width {
+    width: 100%;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #22c122;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+
+.contact-btn-sub {
+    background-color: #22c122;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    padding: 5px 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.contact-btn-sub:hover {
+    background-color: #1a9d1a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fields-align {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+}
