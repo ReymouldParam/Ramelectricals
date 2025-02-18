@@ -3,6 +3,135 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Parent container for positioning */
+.spark-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    /* Prevents interaction */
+}
+
+/* Spark effect positioned on a wire */
+@keyframes moveSpark {
+    0% {
+        stroke-dashoffset: 100;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
+.spark-animation path {
+    animation: moveSpark 3s linear forwards;
+    stroke: yellow;
+    stroke-width: 3;
+    filter: drop-shadow(0px 0px 10px yellow);
+}
+
+
+
+/* Keyframes to move the spark and stop */
+@keyframes sparkMove {
+    0% {
+        opacity: 1;
+        transform: translate(0vw, 0vh);
+    }
+    20% {
+        transform: translate(5vw, -2vh);
+    }
+    40% {
+        transform: translate(10vw, -1vh);
+    }
+    60% {
+        transform: translate(15vw, -3vh);
+    }
+    80% {
+        transform: translate(20vw, -2vh);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(25vw, -4vh);
+    }
+}
+
+
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 20px #00eaff, 0 0 30px #00eaff, 0 0 40px #00eaff;
+    }
+
+    50% {
+        box-shadow: 0 0 30px #00eaff, 0 0 40px #00eaff, 0 0 50px #00eaff;
+    }
+
+    100% {
+        box-shadow: 0 0 20px #00eaff, 0 0 30px #00eaff, 0 0 40px #00eaff;
+    }
+}
+
+@keyframes iconPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.animation-con1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    gap: 100px;
+}
+
+.statement1 {
+    color: white;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+    width: 80%;
+
+}
+
+.power-btn {
+    width: 35px;
+    height: 35px;
+}
+
+.neon-glow-button {
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: #282828;
+    border: none;
+    border-radius: 30px;
+    text-shadow: 0 0 10px #00eaff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: neonGlow 1s infinite alternate ease-in-out;
+}
+
+.neon-glow-button i {
+    margin-right: 10px;
+    animation: iconPulse 1.5s infinite ease-in-out;
 }
 
 /* section2 */

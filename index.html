@@ -39,10 +39,23 @@
         </nav>
         <!-- section1 -->
         <section class="section1">
-            <div>
-                Section1
+            <div class="animation-con1">
+                <h2 class="statement1">
+                    Maximizing Efficiency, Enhancing Safety - Your Expert in Power Control
+                </h2>
+
+                <!-- Power Button -->
+                <button class="neon-glow-button" id="powerButton">
+                    <img src="assets/images/power.svg" alt="power" class="power-btn" />
+                </button>
             </div>
+
+            <!-- Electric Spark Effect -->
+            <!-- <div class="spark-container">
+                <img src="assets/images/spark-lin.svg" alt="Electric Spark" class="spark-animation" id="sparkEffect" />
+            </div> -->
         </section>
+
         <!-- section2 (About us ) -->
         <section>
             <div class="heading-align">
@@ -317,6 +330,20 @@
         </section>
     </div>
     <!-- button -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const powerButton = document.getElementById("powerButton");
+            const spark = document.getElementById("sparkEffect");
+
+            powerButton.addEventListener("click", function () {
+                // Reset animation
+                spark.style.animation = "none";
+                spark.style.opacity = "1"; // Make it visible
+                void spark.offsetWidth; // Force reflow to restart animation
+                spark.style.animation = "sparkMove 3s linear forwards";
+            });
+        });
+    </script>
 </body>
 
 </html>
