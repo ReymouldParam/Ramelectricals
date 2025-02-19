@@ -1,6 +1,8 @@
+/* SECTION 1 - Static Background Before Animation */
 .section1 {
-    background-image: url('../images/sun-setting-silhouette-electricity-pylons.png');
+    background-image: url('assets/images/sun-setting-silhouette-electricity-pylons.png'); /* Static first background */
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
     display: flex;
@@ -8,9 +10,41 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    transition: background-image 1.5s ease-in-out;
-    /* Smooth transition effect */
+    transition: background 1.5s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out;
+    overflow: hidden;
+    opacity: 1; /* Fully visible initially */
+    visibility: visible;
 }
+
+/* FADE-OUT CLASS FOR HIDING SECTION 1 (AFTER BUTTON CLICK) */
+.section1.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden; /* Fully hides everything */
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+/* TEXT ANIMATION */
+.fade-text {
+    width: 60%;
+    font-size: 40px;
+    text-align: center;
+    position: absolute;
+    bottom: -50px;
+    opacity: 1; /* Ensure it's visible initially */
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out, color 1s ease-in-out;
+}
+
+/* TEXT ACTIVE STATE */
+.fade-text.active {
+    transform: translateY(-300px); /* Moves text to the center */
+    width: 50%;
+    font-size: 40px;
+    text-align: center;
+    opacity: 1;
+}
+
+
 
 @keyframes neonGlow {
     0% {
@@ -38,20 +72,6 @@
     }
 }
 
-.animation-con1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    gap: 100px;
-}
-
-
-.power-btn {
-    width: 35px;
-    height: 35px;
-}
-
 .neon-glow-button {
     display: flex;
     align-items: center;
@@ -66,6 +86,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     animation: neonGlow 1s infinite alternate ease-in-out;
+    margin-top: 15%;
 }
 
 .neon-glow-button i {
@@ -73,12 +94,25 @@
     animation: iconPulse 1.5s infinite ease-in-out;
 }
 
-.fade-text {
-    color: white;
-    width: 60%;
-    font-size: 40px;
-    text-align: center;
-    margin-bottom: 40px;
+/* FADE OUT BUTTON EFFECT */
+.neon-glow-button.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+.power-btn{
+    width: 35px;
+    height: 35px;
+    
+}
+
+/* BACKGROUND TEXT COLORS */
+.text-light {
+    color: #fff;
+}
+
+.text-dark {
+    color:red;
 }
 
 /* section2 */
