@@ -37,13 +37,16 @@
                 <button class="contact">Contact Now</button>
             </div>
         </nav>
-        <!-- section1 -->
-        <section class="section1">
-            <h2 class="fade-text">Maximizing Efficiency, Enhancing Safety - Your Expert in Power Control</h2>
+        <!-- SECTION 1 -->
+        <section class="section1" id="section1">
+            <h2 class="fade-text" id="dynamicText">Maximizing Efficiency, Enhancing Safety - Your Expert in Power
+                Control</h2>
             <button class="neon-glow-button" id="powerButton">
                 <img src="assets/images/power.svg" alt="power" class="power-btn" />
             </button>
         </section>
+
+
         <!-- section2 (About us ) -->
         <section>
             <div class="heading-align">
@@ -322,27 +325,45 @@
         document.addEventListener("DOMContentLoaded", function () {
             const section = document.querySelector(".section1");
             const powerButton = document.getElementById("powerButton");
+            const dynamicText = document.getElementById("dynamicText");
 
-            const backgrounds = [
-                "assets/images/sun-setting-silhouette-electricity-pylons.png",
-                "assets/images/eletrical-bg.jpg",
-                "assets/images/eletrical-bg2.jpg",
-                "assets/images/eletrical-bg3.png"
+            // Backgrounds & Corresponding Texts
+            const backgroundData = [
+                { image: "assets/images/sun-setting-silhouette-electricity-pylons.png", text: "Maximizing Efficiency, Enhancing Safety - Your Expert in Power Control" },
+                { image: "assets/images/eletrical-bg.jpg", text: "Reliable Power Solutions for a Brighter Tomorrow" },
+                { image: "assets/images/eletrical-bg2.jpg", text: "Innovative Electrical Systems Designed for You" },
+                { image: "assets/images/eletrical-bg3.png", text: "Powering the Future with Smart Technology" }
             ];
 
             let index = 0;
+            let animationStarted = false;
 
             powerButton.addEventListener("click", function () {
-                powerButton.style.display = "none"; // Hide button
-                startBackgroundAnimation();
+                if (animationStarted) return; // Prevent multiple clicks
+                animationStarted = true;
+
+                powerButton.classList.add("hidden"); // Fade out button
+
+                setTimeout(() => {
+                    section.classList.add("hidden"); // Hide first section
+                    setTimeout(startBackgroundAnimation, 1000); // Start animation after fade out
+                }, 500);
             });
 
             function startBackgroundAnimation() {
+                section.classList.remove("hidden"); // Bring section back for animation
+
                 setInterval(() => {
-                    index = (index + 1) % backgrounds.length; // Loop through images
-                    section.style.backgroundImage = `url('${backgrounds[index]}')`;
-                    section.style.transition = "background-image 0.5s ease-in-out"; // Smooth transition
-                }, 3000); // Change background every 3 seconds
+                    index = (index + 1) % backgroundData.length;
+
+                    // Fade out text before change
+                    dynamicText.classList.remove("active");
+                    setTimeout(() => {
+                        section.style.backgroundImage = `url('${backgroundData[index].image}')`; // Change background
+                        dynamicText.innerHTML = backgroundData[index].text; // Change text
+                        dynamicText.classList.add("active"); // Animate text in
+                    }, 1000); // Wait for fade-out
+                }, 4000); // Change every 4 seconds
             }
         });
 
