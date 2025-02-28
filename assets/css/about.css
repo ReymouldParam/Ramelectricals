@@ -1,7 +1,7 @@
 .section1 {
-    padding: 0;
-}
+    height: 100vh;
 
+}
 
 .about-head {
     font-size: 20px;
@@ -28,6 +28,7 @@
     justify-content: space-around;
     gap: 5%;
     padding: 2%;
+    margin-top: 5%;
 }
 
 .about-text-align {
@@ -67,7 +68,7 @@
     text-align: left;
     padding: 40px;
     font-size: 20px;
-    background-color: yellow;
+    background-color: #FFCB1B;
     border-radius: 15px;
     color: white;
     font-weight: 400;
@@ -191,7 +192,7 @@
 
     background-color: #fbd12e;
     /* Bright highlight color */
-    padding:2rem;
+    padding: 2rem;
     border-radius: 8px;
 }
 
@@ -199,34 +200,37 @@
 /* Trusted Company Section */
 .trusted-company {
     width: 100%;
-    max-width: 400px; /* Adjust as needed */
-  }
-  
-  /* Heading Style */
-  .trusted-company h3 {
+    max-width: 400px;
+    /* Adjust as needed */
+}
+
+/* Heading Style */
+.trusted-company h3 {
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 8px;
     color: #111;
-  }
-  
-  /* Progress Bar Container */
-  .progress-bar {
+}
+
+/* Progress Bar Container */
+.progress-bar {
     width: 100%;
     height: 10px;
     background-color: #ccc;
     border-radius: 5px;
     overflow: hidden;
-  }
-  
-  /* Progress Fill */
-  .progress-fill {
-    width: 75%; /* Adjust percentage to match your desired progress */
+}
+
+/* Progress Fill */
+.progress-fill {
+    width: 75%;
+    /* Adjust percentage to match your desired progress */
     height: 100%;
-    background-color: #FFC107; /* Yellow progress color */
+    background-color: #FFC107;
+    /* Yellow progress color */
     border-radius: 5px;
-  }
-  
+}
+
 
 .highlight-left .icon-container {
     min-width: 40px;
@@ -286,4 +290,115 @@
 .highlight-right ul li span {
     color: #555;
     font-size: 1rem;
+}
+
+/* section4 */
+.section4 {
+    background-image: url("../images/about-us-img-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+/* Container Styling */
+.help-box {
+    background: #fff;
+    padding: 5%;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    text-align: left;
+    position: relative;
+
+}
+
+/* Title Styling */
+.help-box h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.3;
+}
+
+.help-box .highlight {
+    color: #d80000;
+    /* Red text */
+}
+
+/* Red Left Border */
+.help-box h2::before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 100px;
+    background: #d80000;
+    position: absolute;
+    left: 40px;
+    top: 60px;
+    border-radius: 10px;
+}
+
+/* Paragraph Styling */
+.help-box p {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0 20px;
+}
+
+/* Buttons Styling */
+.buttons {
+    display: flex;
+    gap: 40px;
+}
+
+/* Buttons Styling */
+.call-btn,
+.estimate-btn {
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background: #111;
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.call-btn::before,
+.estimate-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #29CE00;
+    transition: left 0.3s ease-in-out;
+    border-radius: 50px;
+    opacity: 0.5;
+}
+
+.call-btn:hover::before,
+.estimate-btn:hover::before {
+    left: 0;
+}
+
+.call-btn:hover,
+.estimate-btn:hover {
+    color: #fff;
+}
+
+.call-btn:hover::before,
+.estimate-btn:hover::before {
+    left: 0;
 }
