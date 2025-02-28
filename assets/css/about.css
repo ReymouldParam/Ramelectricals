@@ -1,0 +1,289 @@
+.section1 {
+    padding: 0;
+}
+
+
+.about-head {
+    font-size: 20px;
+    color: #BC0404;
+    font-weight: 600;
+}
+
+.about-head-main {
+    font-size: 30px;
+    font-weight: 600;
+    color: #131513;
+}
+
+.about-head-para {
+    font-size: 20px;
+    font-weight: 400;
+    color: #131513;
+
+}
+
+.about-align {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-around;
+    gap: 5%;
+    padding: 2%;
+}
+
+.about-text-align {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.belowabout-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 5%;
+    background: #ffffff;
+    /* Ensures a clean background */
+    padding: 10px;
+    border-radius: 10px;
+    /* Smooth rounded edges */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    /* Slightly stronger shadow on hover */
+    gap: 10%;
+}
+
+.icon-text-align {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.about-img-class {
+    width: auto;
+    height: 500px;
+}
+
+.yellow-con {
+    text-align: left;
+    padding: 40px;
+    font-size: 20px;
+    background-color: yellow;
+    border-radius: 15px;
+    color: white;
+    font-weight: 400;
+    width: 300px;
+    transform: translateY(-80px) translateX(-20px);
+    z-index: 5;
+}
+
+/* section2 */
+.section2 {
+    background-image: url("../images/about-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.section2 .count-down-cons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+    padding: 10%;
+}
+
+.count-down-cons .numeric {
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+
+.count-down-cons .numeric-para {
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+
+/* SECTION 3 BASE STYLES */
+.section3 {
+    /* Background thunder image */
+    background-image: url("../images/thunder-strike.png");
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 100vh;
+    /* padding: 60px 0; */
+    /* Alternative if you want auto height */
+
+    display: flex;
+    /* So content can center vertically if using 100vh */
+    align-items: center;
+    justify-content: center;
+}
+
+/* WRAPPER FOR THE CONTENT */
+.section3-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* LEFT IMAGE AREA */
+.section3-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.section3-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    /* optional for slightly rounded corners */
+}
+
+/* RIGHT TEXT AREA */
+.section3-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* HEADINGS */
+.section3-text h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.section3-text .subheading {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+/* HIGHLIGHT BOXES CONTAINER */
+.highlight-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    /* Adjusts layout on smaller screens */
+    gap: 1rem;
+}
+
+/* LEFT HIGHLIGHT BOX */
+.highlight-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    background-color: #fbd12e;
+    /* Bright highlight color */
+    padding:2rem;
+    border-radius: 8px;
+}
+
+
+/* Trusted Company Section */
+.trusted-company {
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+  }
+  
+  /* Heading Style */
+  .trusted-company h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #111;
+  }
+  
+  /* Progress Bar Container */
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  /* Progress Fill */
+  .progress-fill {
+    width: 75%; /* Adjust percentage to match your desired progress */
+    height: 100%;
+    background-color: #FFC107; /* Yellow progress color */
+    border-radius: 5px;
+  }
+  
+
+.highlight-left .icon-container {
+    min-width: 40px;
+    /* ensures icon area remains consistent */
+}
+
+.highlight-left .icon-container img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.highlight-left p {
+    margin: 0;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+
+
+/* RIGHT HIGHLIGHT BOX */
+.highlight-right {
+    /* White box with subtle shadow */
+    flex: 1;
+    background-color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    /* Helps control overall width if needed */
+    max-width: 400px;
+}
+
+
+
+/* LIST OF CHECK ITEMS */
+.highlight-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.highlight-right ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    /* Spacing between items */
+}
+
+.highlight-right ul li svg.small-svg {
+    width: 40px;
+    /* Icon size */
+    height: 40px;
+    margin-right: 0.5rem;
+}
+
+.highlight-right ul li span {
+    color: #555;
+    font-size: 1rem;
+}
