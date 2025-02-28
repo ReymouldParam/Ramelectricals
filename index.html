@@ -24,13 +24,13 @@
             </div>
             <ul class="list-align-items">
                 <li>
-                    Home
+                    <a href="./index.html">Home</a>
                 </li>
                 <li>
-                    About
+                    <a href="./about.html">About Us</a>
                 </li>
                 <li>
-                    Products
+                    <a href=""></a>
                 </li>
             </ul>
             <div class="contact-btn">
@@ -482,7 +482,7 @@
             const messageField = document.getElementById("message");
             const charCountDisplay = document.getElementById("charCount");
             const maxLength = messageField.maxLength;
-    
+
             messageField.addEventListener("input", function () {
                 let currentLength = messageField.value.length;
                 charCountDisplay.textContent = `${currentLength} / ${maxLength} characters`;

@@ -43,4 +43,9 @@
     color: white;
     border: none;
     font-family: "Poppins", sans-serif;
+}.list-align-items a{
+    color: white;
+    font-weight: 400;
+    font-size:20px;
+    text-decoration: none;
 }
