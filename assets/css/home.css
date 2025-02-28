@@ -178,6 +178,111 @@
     max-width: 600px;
     margin: 0 auto 30px;
 }
+/* products categories */
+.products-section-category {
+    background: #FFC107;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.section-header {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-header .title-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+
+.section-header .subtitle-text {
+    font-size: 16px;
+    color: black;
+}
+
+/* Navigation */
+.categories-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.categories-menu a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.categories-menu .selected {
+    color: red;
+    font-weight: bold;
+}
+
+.arrow-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Product Grid */
+.items-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.item-box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.item-box img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.item-title {
+    background: white;
+    padding: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* View All Button */
+.all-items-btn {
+    margin-top: 30px;
+}
+
+.all-items-btn button {
+    background: black;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.all-items-btn button:hover {
+    background: #333;
+}
+
 
 /* Products Container */
 .products-container {
@@ -286,6 +391,9 @@
         align-items: center;
     }
 }
+
+
+
 
 /* parteners */
 /* section6 */
@@ -441,6 +549,8 @@
         /* Reduce logo size for mobile screens */
     }
 }
+
+
 
 /* certification section */
 .certification-bg {
