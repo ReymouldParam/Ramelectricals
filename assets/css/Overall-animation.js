@@ -44,7 +44,82 @@ document.addEventListener("DOMContentLoaded", function () {
         charCountDisplay.textContent = `${currentLength} / ${maxLength} characters`;
     });
 });
+// products category
+document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
 
+    // Fade in section title & description
+    gsap.fromTo(".shop-title, .shop-description",
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".shop-title",
+                start: "top 85%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        }
+    );
+
+    // Staggered fade-in for product cards
+    gsap.fromTo(".shop-item",
+        { opacity: 0, y: 50, scale: 0.9 },
+        {
+            opacity: 1, y: 0, scale: 1, duration: 1, stagger: 0.2, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".shop-grid",
+                start: "top 90%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        }
+    );
+
+    // View All button animation
+    gsap.to(".shop-view-all", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".shop-view-all",
+            start: "top 90%",
+            toggleActions: "play none none none",
+            once: true
+        }
+    });
+});
+
+document.querySelectorAll(".shop-item").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; 
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 25;
+        const rotateY = (centerX - x) / 25;
+
+        gsap.to(card, {
+            rotationX: rotateX,
+            rotationY: rotateY,
+            transformPerspective: 1000,
+            ease: "power2.out"
+        });
+    });
+
+    card.addEventListener("mouseleave", () => {
+        gsap.to(card, {
+            rotationX: 0,
+            rotationY: 0,
+            transformPerspective: 1000,
+            ease: "power2.out"
+        });
+    });
+});
 // products section
 document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollTrigger);
@@ -161,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// *** about page *** 
+// ********* about page ***************
 document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollTrigger);
 
