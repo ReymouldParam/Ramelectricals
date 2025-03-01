@@ -156,3 +156,58 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // products section
+document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade in heading & description
+    gsap.fromTo(".heading-align h2, .section-description", 
+        { opacity: 0, y: 30 }, 
+        { opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power3.out",
+          scrollTrigger: {
+              trigger: ".heading-align",
+              start: "top 85%",
+              toggleActions: "play none none none",
+              once: true
+          }
+        }
+    );
+
+    // Staggered fade-in for product cards
+    gsap.fromTo(".product-card", 
+        { opacity: 0, y: 50, scale: 0.9 }, 
+        { opacity: 1, y: 0, scale: 1, duration: 1, stagger: 0.2, ease: "power3.out",
+          scrollTrigger: {
+              trigger: ".products-container",
+              start: "top 90%",
+              toggleActions: "play none none none",
+              once: true
+          }
+        }
+    );
+
+    // Fade in "View All" button after products appear
+    gsap.to(".view-btn", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".view-btn",
+            start: "top 90%",
+            toggleActions: "play none none none",
+            once: true
+        }
+    });
+
+    // Product card hover effect (subtle bounce)
+    document.querySelectorAll(".product-card").forEach(card => {
+        card.addEventListener("mouseenter", () => {
+            gsap.to(card, { scale: 1.07, duration: 0.3, ease: "power2.out" });
+        });
+
+        card.addEventListener("mouseleave", () => {
+            gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" });
+        });
+    });
+});

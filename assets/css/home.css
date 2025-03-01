@@ -27,6 +27,7 @@
     transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
 
+
 /* TEXT ANIMATION */
 .fade-text {
     width: 60%;
@@ -109,7 +110,7 @@
 .power-btn {
     width: 35px;
     height: 35px;
-
+   
 }
 
 /* BACKGROUND TEXT COLORS */
@@ -403,6 +404,14 @@
     }
 }
 
+/* Hide elements initially for animations */
+.heading-align h2,
+.section-description,
+.view-btn,
+.product-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
 
 
 
