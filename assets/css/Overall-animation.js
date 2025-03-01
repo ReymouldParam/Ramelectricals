@@ -1,3 +1,15 @@
+// header navabr
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector(".header");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+});
 
 // landing page about section
 document.addEventListener("DOMContentLoaded", function () {
@@ -95,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.querySelectorAll(".shop-item").forEach((card) => {
     card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; 
+        const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
         const centerX = rect.width / 2;

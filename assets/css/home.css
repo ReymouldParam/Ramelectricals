@@ -124,7 +124,7 @@
 
 /* section2 */
 .section2 {
-    padding: 5%;
+    padding: 2%;
 }
 
 .about-us {
@@ -141,6 +141,7 @@
     font-weight: 400;
     color: #131513;
     text-align: center;
+    padding-bottom: 3%;
 }
 
 .icons-aling {
@@ -167,7 +168,7 @@
 /* Shop Section */
 .shop-section {
     text-align: center;
-    padding: 80px 20px;
+    padding: 2%;
     background: #f8f9fa;
 }
 
@@ -228,7 +229,7 @@
     text-align: center;
     padding: 20px;
     transition: transform 0.1s ease-in-out, box-shadow 0.4s ease-in-out;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     transform-style: preserve-3d;
     perspective: 1000px; /* Adds 3D depth */
@@ -244,7 +245,7 @@
 /* 🟡 3D Effect on Hover */
 .shop-item:hover {
     transform: rotateX(10deg) rotateY(10deg) translateY(-12px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); /* Electric glow */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); /* Electric glow */
 }
 
 /* Product Info */
@@ -317,8 +318,10 @@
     flex-wrap: wrap;
 }
 .section-title{
-    margin-top: 10px;
     margin-bottom: 20px;
+}
+.section-description{
+    padding-bottom: 20px;
 }
 /* Product Cards */
 .product-card {

@@ -1,5 +1,6 @@
 .section1 {
-    height: 100vh;
+    height: 100%;
+    padding-top:7%;
 
 }
 
@@ -45,7 +46,7 @@
     margin-top: 5%;
     background: #ffffff;
     /* Ensures a clean background */
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     /* Smooth rounded edges */
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
@@ -136,13 +137,6 @@
     animation: slideInRight 1.2s ease-out;
     transition: transform 0.3s ease-in-out;
 }
-
-.about-card:hover {
-    transform: scale(1.05);
-    padding: 20px;
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
-}
-
 
 
 /* section2 */

@@ -1,26 +1,34 @@
-
-*{
+* {
     padding: 0;
     margin: 0;
-   font-family: "Poppins";
+    font-family: "Poppins";
 }
 
-:root{
-    --family:"Poppins", sans-serif;
+:root {
+    --family: "Poppins", sans-serif;
 }
 
-.header{
+/* Fixed Header */
+.header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     background-color: #201818;
     color: white;
-    padding: 1%;
+    padding: 15px 5%;
     font-family: "Poppins", sans-serif;
     z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    /* Set a fixed height */
 }
-.list-align-items{
+
+
+.list-align-items {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -28,7 +36,8 @@
     gap: 50px;
     font-family: "Poppins", sans-serif;
 }
-.contact-btn{
+
+.contact-btn {
     background-color: #BC0404;
     padding: 5px;
     border-radius: 10px;
@@ -36,16 +45,37 @@
     font-family: "Poppins", sans-serif;
 }
 
-.contact{
+.contact {
     background-color: transparent;
     font-size: 16px;
     font-weight: 400;
     color: white;
     border: none;
     font-family: "Poppins", sans-serif;
-}.list-align-items a{
+}
+
+.list-align-items a {
     color: white;
     font-weight: 400;
-    font-size:20px;
+    font-size: 20px;
     text-decoration: none;
 }
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Close Button for Mobile */
+.close-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    text-align: right;
+    padding: 10px;
+}
+
