@@ -110,7 +110,7 @@
 .power-btn {
     width: 35px;
     height: 35px;
-   
+
 }
 
 /* BACKGROUND TEXT COLORS */
@@ -121,9 +121,6 @@
 .text-dark {
     color: red;
 }
-
-
-
 
 /* section2 */
 .section2 {
@@ -693,6 +690,31 @@ textarea {
 .contact-btn-sub:hover {
     background-color: #1a9d1a;
 }
+
+
+/* Hide elements initially for animations */
+.section-title,
+.about-para,
+.form-group,
+.contact-btn-sub {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Focus Effect on Input Fields */
+input:focus,
+textarea:focus {
+    border-color: #22c122;
+    box-shadow: 0 0 10px rgba(34, 193, 34, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Submit Button Hover Effect */
+.contact-btn-sub:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(34, 193, 34, 0.5);
+}
+
 
 /* footer  */
 /* Footer Styles */

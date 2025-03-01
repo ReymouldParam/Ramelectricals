@@ -32,116 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 });
 
-// section1 animation 
-
-document.addEventListener("DOMContentLoaded", function () {
-    const section = document.querySelector(".section1");
-    const powerButton = document.getElementById("powerButton");
-    const dynamicText = document.getElementById("dynamicText");
-
-    // Backgrounds & Corresponding Texts or Image Overlays (Appearing at Text Position)
-    const backgroundData = [
-        { image: "assets/images/sun-setting-silhouette-electricity-pylons.png", text: "Maximizing Efficiency, Enhancing Safety - Your Expert in Power Control", textColor: "text-light" },
-        { image: "assets/images/eletrical-bg.jpg", text: "Reliable Power Solutions for a Brighter Tomorrow", textColor: "text-dark" },
-        { image: "assets/images/eletrical-bg2.jpg", text: "Innovative Electrical Systems Designed for You", textColor: "text-light" },
-        {
-            image: "assets/images/eletrical-bg3.png",
-            text: "",
-            textColor: "",
-            imageOverlays: [
-                { src: "assets/images/sub-station-room.png" },
-                { src: "assets/images/electrical-wires.png" },
-                { src: "assets/images/fuese.png" }
-            ] // Three images will appear where the text normally appears
-        }
-    ];
-
-    let index = 0;
-    let animationStarted = false;
-    let imageIndex = 0;
-    let imageInterval;
-
-    // Set initial background manually (static before animation starts)
-    section.style.backgroundImage = `url('${backgroundData[0].image}')`;
-    dynamicText.innerHTML = backgroundData[0].text;
-    dynamicText.className = `fade-text text-light active`;
-
-    powerButton.addEventListener("click", function () {
-        if (animationStarted) return; // Prevent multiple clicks
-        animationStarted = true;
-
-        powerButton.classList.add("hidden"); // Fade out button
-        dynamicText.classList.add("hidden"); // Fade out text
-
-        setTimeout(() => {
-            section.classList.add("hidden"); // Fully hide Section 1 (background, text, button)
-            setTimeout(startBackgroundAnimation, 1000); // Start animation after fade out
-        }, 500);
-    });
-
-    function startBackgroundAnimation() {
-        section.classList.remove("hidden"); // Bring section back for animation
-
-        function updateBackground() {
-            index = (index + 1) % backgroundData.length;
-
-            // Fade out text before change
-            dynamicText.classList.remove("active");
-
-            setTimeout(() => {
-                section.style.backgroundImage = `url('${backgroundData[index].image}')`; // Change background
-
-                if (backgroundData[index].imageOverlays) {
-                    showImageSlideshow(backgroundData[index].imageOverlays, () => {
-                        setTimeout(updateBackground, 1000); // Move to the next background after images finish
-                    });
-                } else {
-                    dynamicText.innerHTML = backgroundData[index].text; // Otherwise, show normal text
-                    dynamicText.className = backgroundData[index].text ? `fade-text active ${backgroundData[index].textColor}` : `fade-text active`;
-
-                    setTimeout(updateBackground, 4000); // Keep text for 4 seconds before changing
-                }
-
-            }, 1000); // Wait for fade-out
-        }
-
-        updateBackground(); // Start the animation loop
-    }
-
-    function showImageSlideshow(images, callback) {
-        if (imageInterval) clearInterval(imageInterval); // Clear previous interval
-        let imageCycleCount = 0;
-
-        function showNextImage() {
-            const imgData = images[imageIndex]; // Get current image details
-            dynamicText.innerHTML = ` 
-      <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-            <img src="${imgData.src}" alt="Display Image" style="
-                width: auto; 
-                height: 350px; 
-                opacity: 0; 
-                transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-                display: block;
-                transform: translateY(-2px);"> <!-- Moves image higher -->
-        </div>
-    `;
-            setTimeout(() => { dynamicText.querySelector("img").style.opacity = 1; }, 100); // Fade in
-
-            imageIndex = (imageIndex + 1) % images.length;
-            imageCycleCount++;
-
-            if (imageCycleCount >= images.length) {
-                clearInterval(imageInterval); // Stop cycling images after all are displayed
-                setTimeout(callback, 3000); // Wait before moving to the next background
-            }
-        }
-
-        showNextImage(); // Show first image immediately
-
-        // Cycle through images every 3 seconds
-        imageInterval = setInterval(showNextImage, 3000);
-    }
-});
 
 // character limit
 document.addEventListener("DOMContentLoaded", function () {
@@ -160,28 +50,30 @@ document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollTrigger);
 
     // Fade in heading & description
-    gsap.fromTo(".heading-align h2, .section-description", 
-        { opacity: 0, y: 30 }, 
-        { opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power3.out",
-          scrollTrigger: {
-              trigger: ".heading-align",
-              start: "top 85%",
-              toggleActions: "play none none none",
-              once: true
-          }
+    gsap.fromTo(".heading-align h2, .section-description",
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".heading-align",
+                start: "top 85%",
+                toggleActions: "play none none none",
+                once: true
+            }
         }
     );
 
     // Staggered fade-in for product cards
-    gsap.fromTo(".product-card", 
-        { opacity: 0, y: 50, scale: 0.9 }, 
-        { opacity: 1, y: 0, scale: 1, duration: 1, stagger: 0.2, ease: "power3.out",
-          scrollTrigger: {
-              trigger: ".products-container",
-              start: "top 90%",
-              toggleActions: "play none none none",
-              once: true
-          }
+    gsap.fromTo(".product-card",
+        { opacity: 0, y: 50, scale: 0.9 },
+        {
+            opacity: 1, y: 0, scale: 1, duration: 1, stagger: 0.2, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".products-container",
+                start: "top 90%",
+                toggleActions: "play none none none",
+                once: true
+            }
         }
     );
 
@@ -210,4 +102,239 @@ document.addEventListener("DOMContentLoaded", function () {
             gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" });
         });
     });
+});
+
+// contact section
+document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade in heading & subtitle
+    gsap.fromTo(".section-title, .about-para",
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".heading-align",
+                start: "top 85%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        }
+    );
+
+    // Staggered fade-in for form fields
+    gsap.fromTo(".form-group",
+        { opacity: 0, y: 50 },
+        {
+            opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".contact-form",
+                start: "top 90%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        }
+    );
+
+    // Fade in submit button after fields
+    gsap.to(".contact-btn-sub", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".contact-btn-sub",
+            start: "top 90%",
+            toggleActions: "play none none none",
+            once: true
+        }
+    });
+
+    // Button hover animation (subtle scale)
+    document.querySelector(".contact-btn-sub").addEventListener("mouseenter", () => {
+        gsap.to(".contact-btn-sub", { scale: 1.07, duration: 0.3, ease: "power2.out" });
+    });
+
+    document.querySelector(".contact-btn-sub").addEventListener("mouseleave", () => {
+        gsap.to(".contact-btn-sub", { scale: 1, duration: 0.3, ease: "power2.out" });
+    });
+});
+
+// *** about page *** 
+document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo(".about-img-class",
+        { opacity: 0, x: -100 },
+        {
+            opacity: 1, x: 0, duration: 1.2, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".about-img-class",
+                start: "top 80%",
+                toggleActions: "play none none none",
+                once: true  // Animation runs only once
+            }
+        }
+    );
+
+    gsap.fromTo(".about-head-main, .about-head-para",
+        { opacity: 0, y: 50 },
+        {
+            opacity: 1, y: 0, duration: 1.2, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".about-head-main",
+                start: "top 85%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        }
+    );
+
+    // gsap.fromTo(".about-card",
+    //     { opacity: 0, y: 50 },
+    //     {
+    //         opacity: 1, y: 0, duration: 1.2, stagger: 0.2, ease: "power3.out",
+    //         scrollTrigger: {
+    //             trigger: ".belowabout-card",
+    //             start: "top 90%",
+    //             toggleActions: "play none none none",
+    //             once: true
+    //         }
+    //     }
+    // );
+});
+// section4
+
+document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Image Slide-in from Left
+    gsap.fromTo(".section3-image img",
+        { opacity: 0, x: -100 },
+        {
+            opacity: 1, x: 0, duration: 1.2, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".section3-image img",
+                start: "top 80%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        }
+    );
+
+    // Text Slide-in from Right
+    gsap.fromTo(".section3-text h1, .section3-text .subheading",
+        { opacity: 0, x: 100 },
+        {
+            opacity: 1, x: 0, duration: 1, stagger: 0.2, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".section3-text",
+                start: "top 85%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        }
+    );
+
+    // Highlight Boxes (Staggered Entrance)
+    gsap.fromTo(".highlight-left, .highlight-right",
+        { opacity: 0, y: 50 },
+        {
+            opacity: 1, y: 0, duration: 1.2, stagger: 0.3, ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".highlight-boxes",
+                start: "top 90%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        }
+    );
+
+    // Progress Bar Animation
+    gsap.to(".progress-fill", {
+        width: "75%", // Adjust to your progress value
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".progress-bar",
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true
+        }
+    });
+});
+
+// section4
+document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Help Box Slide-in Animation
+    gsap.to(".help-box", {
+        opacity: 1,
+        x: 0,
+        duration: 1.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".help-box",
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true
+        }
+    });
+
+    // Staggered Animation for Text & Buttons
+    gsap.to(".help-box h2, .help-box p, .buttons button", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".help-box",
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true
+        }
+    });
+
+    // Button Hover Effect (Scaling)
+    document.querySelectorAll(".call-btn, .estimate-btn").forEach(button => {
+        button.addEventListener("mouseenter", () => {
+            gsap.to(button, { scale: 1.1, duration: 0.3, ease: "power2.out" });
+        });
+
+        button.addEventListener("mouseleave", () => {
+            gsap.to(button, { scale: 1, duration: 0.3, ease: "power2.out" });
+        });
+    });
+});
+
+// numbers timer
+function animateCounter(elementId, start, end, duration) {
+    let obj = document.getElementById(elementId);
+    if (!obj) return; // Ensure the element exists
+
+    let range = end - start;
+    let current = start;
+    let increment = range / (duration / 10); // Smooth increment
+    let stepTime = 10; // Update every 10ms
+
+    function updateCounter() {
+        current += increment;
+        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+            obj.textContent = end + "+";
+            return;
+        }
+        obj.textContent = Math.round(current) + "+";
+        requestAnimationFrame(updateCounter);
+    }
+
+    requestAnimationFrame(updateCounter);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    animateCounter("experience-count", 0, 5, 2000);
+    animateCounter("projects-count", 0, 100, 2000);
+    animateCounter("customers-count", 0, 200, 3000);
 });
