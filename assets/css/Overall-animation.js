@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     gsap.fromTo(".section-title, .about-para",
         { opacity: 0, y: 30 },
         {
-            opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power3.out",
+            opacity: 1, y: 0, duration: 1, stagger: 0.4, ease: "power3.out",
             scrollTrigger: {
                 trigger: ".heading-align",
                 start: "top 85%",
