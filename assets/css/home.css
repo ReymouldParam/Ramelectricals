@@ -121,6 +121,9 @@
     color: red;
 }
 
+
+
+
 /* section2 */
 .section2 {
     padding: 10px;
@@ -154,6 +157,13 @@
     text-align: center;
 }
 
+/* Hide elements initially for animations */
+.heading-align h2,
+.heading-align p,
+.icons-aling div {
+    opacity: 0;
+}
+
 
 
 /* Section Title */
@@ -178,6 +188,7 @@
     max-width: 600px;
     margin: 0 auto 30px;
 }
+
 /* products categories */
 .products-section-category {
     background: #FFC107;

@@ -38,6 +38,7 @@
                 <button class="contact">Contact Now</button>
             </div>
         </nav>
+
         <!-- section1 -->
         <section class="section1">
             <div class="about-align">
@@ -125,7 +126,7 @@
                 <!-- Left side: Electrician image -->
                 <div class="section3-image">
                     <!-- Replace with your actual image path -->
-                    <img src="assets/images/about-us-img2.png" alt="Electrician working on panel" />
+                    <img src="assets/images/about-us-img2.png" alt="Electrician working on panel" class="working-img"/>
                 </div>
 
                 <!-- Right side: Text and highlights -->
@@ -309,6 +310,158 @@
             </div>
         </footer>
     </div>
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.fromTo(".about-img-class",
+                { opacity: 0, x: -100 },
+                {
+                    opacity: 1, x: 0, duration: 1.2, ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: ".about-img-class",
+                        start: "top 80%",
+                        toggleActions: "play none none none",
+                        once: true  // Animation runs only once
+                    }
+                }
+            );
+
+            gsap.fromTo(".about-head-main, .about-head-para",
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1, y: 0, duration: 1.2, ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: ".about-head-main",
+                        start: "top 85%",
+                        toggleActions: "play none none none",
+                        once: true
+                    }
+                }
+            );
+
+            // gsap.fromTo(".about-card",
+            //     { opacity: 0, y: 50 },
+            //     {
+            //         opacity: 1, y: 0, duration: 1.2, stagger: 0.2, ease: "power3.out",
+            //         scrollTrigger: {
+            //             trigger: ".belowabout-card",
+            //             start: "top 90%",
+            //             toggleActions: "play none none none",
+            //             once: true
+            //         }
+            //     }
+            // );
+        });
+        // section4
+
+        document.addEventListener("DOMContentLoaded", function () {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Image Slide-in from Left
+        gsap.fromTo(".section3-image img", 
+            { opacity: 0, x: -100 }, 
+            { opacity: 1, x: 0, duration: 1.2, ease: "power3.out",
+              scrollTrigger: {
+                  trigger: ".section3-image img",
+                  start: "top 80%",
+                  toggleActions: "play none none none",
+                  once: true
+              }
+            }
+        );
+
+        // Text Slide-in from Right
+        gsap.fromTo(".section3-text h1, .section3-text .subheading", 
+            { opacity: 0, x: 100 }, 
+            { opacity: 1, x: 0, duration: 1, stagger: 0.2, ease: "power3.out",
+              scrollTrigger: {
+                  trigger: ".section3-text",
+                  start: "top 85%",
+                  toggleActions: "play none none none",
+                  once: true
+              }
+            }
+        );
+
+        // Highlight Boxes (Staggered Entrance)
+        gsap.fromTo(".highlight-left, .highlight-right", 
+            { opacity: 0, y: 50 }, 
+            { opacity: 1, y: 0, duration: 1.2, stagger: 0.3, ease: "power3.out",
+              scrollTrigger: {
+                  trigger: ".highlight-boxes",
+                  start: "top 90%",
+                  toggleActions: "play none none none",
+                  once: true
+              }
+            }
+        );
+
+        // Progress Bar Animation
+        gsap.to(".progress-fill", {
+            width: "75%", // Adjust to your progress value
+            duration: 1.5,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".progress-bar",
+                start: "top 85%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        });
+    });
+
+    // section4
+    document.addEventListener("DOMContentLoaded", function () {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Help Box Slide-in Animation
+        gsap.to(".help-box", {
+            opacity: 1,
+            x: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".help-box",
+                start: "top 85%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        });
+
+        // Staggered Animation for Text & Buttons
+        gsap.to(".help-box h2, .help-box p, .buttons button", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.3,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".help-box",
+                start: "top 85%",
+                toggleActions: "play none none none",
+                once: true
+            }
+        });
+
+        // Button Hover Effect (Scaling)
+        document.querySelectorAll(".call-btn, .estimate-btn").forEach(button => {
+            button.addEventListener("mouseenter", () => {
+                gsap.to(button, { scale: 1.1, duration: 0.3, ease: "power2.out" });
+            });
+
+            button.addEventListener("mouseleave", () => {
+                gsap.to(button, { scale: 1, duration: 0.3, ease: "power2.out" });
+            });
+        });
+    });
+    </script>
+
+
     <!-- Numbers Timer Script -->
     <script>
         function animateCounter(elementId, start, end, duration) {
@@ -353,6 +506,7 @@
             });
         });
     </script>
+
 </body>
 
 </html>
